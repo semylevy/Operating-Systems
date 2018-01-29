@@ -11,6 +11,7 @@
 int getCmdNumber(char *str);
 void printCmds();
 void runCmd(char *input, pid_t p, int arg_count, char **args);
+void tooManyArgs();
 
 int main() {
     char *input [MAX_ARGS];
@@ -24,9 +25,13 @@ int main() {
         char tmp;
         printf("SHELL_SLB>$ ");
         do {
+            if(arg_count >= MAX_ARGS) {
+                tooManyArgs();
+                arg_count--;
+            }
             scanf("%s%c", input[arg_count], &tmp);
             arg_count++;
-        } while (tmp != '\n' && arg_count <= MAX_ARGS+1);
+        } while (tmp != '\n');
         pid_t p;
         switch(getCmdNumber(input[0])) {
             case -1:
@@ -45,6 +50,8 @@ int main() {
             case 3:
                 runCmd("rm", p, 1, input);
                 break;
+            case 4:
+                runCmd("touch", p, 1, input);
             default:
                 break;
         }
@@ -61,7 +68,10 @@ int getCmdNumber(char *str) {
         return 2;
     } else if(!strcmp(str, "borrar")) {
         return 3;
-    } else {
+    } else if(!strcmp(str, "crear")) {
+        return 4;
+    }
+    else {
         return -1;
     }
     return -1;
@@ -72,6 +82,7 @@ void printCmds() {
     printf("fecha\n");
     printf("renombrar\n");
     printf("borrar\n");
+    printf("crear\n");
 }
 
 void runCmd(char *input, pid_t p, int arg_count, char **args) {
@@ -91,4 +102,8 @@ void runCmd(char *input, pid_t p, int arg_count, char **args) {
         p = wait(NULL);
         return;
     }
+}
+
+void tooManyArgs() {
+    printf("--- Cuidado con esos argumentos, podrías romper algo. ---\n");
 }
