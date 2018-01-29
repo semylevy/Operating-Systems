@@ -1,0 +1,19 @@
+Salomon Levy A01023530
+
+--PARTE 1--
+mkdir $HOME/Operativos
+touch $HOME/Operativos/Arch1
+touch $HOME/Operativos/Arch2
+touch $HOME/Operativos/Arch3
+cd Operativos
+cat /etc/passwd > Arch1
+whatis -w wh'*' > Arch2
+whereis ping > Arch3
+cat Arch1 Arch2 >> Arch3
+cat Arch1 Arch2 > Arch3
+mkdir ./Acto1
+mv Arch3 /Acto1
+head -n 1 $HOME/Operativos/Acto1/Arch3
+tail -n 5 ./Operativos/Arch2 > ./Operativos/Acto1/Arch4
+head -n 2 Arch4 | tail -n 1
+rm -r $HOME/Operativos/*

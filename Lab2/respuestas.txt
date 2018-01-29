@@ -1,0 +1,12 @@
+Laboratorio 2
+Salomon Levy A01023530
+ 
+*****
+
+1. exec() y system() ejecutan programas mientras corre el mismo. La diferencia entre ellos son:
+	- exec() reemplaza el resto del programa ejecutándose con el programa a ejecutarse en la llamada. Por lo tanto al terminar se acaba la ejecución.
+	- system() toma el programa a ejecutarse, lo corre en la llamada, y después continúa con el programa original. Por lo tanto se ejecuta el programa en su totalidad.
+
+2. El ejemplo 3 utiliza la función fork(), la cual crea un subproceso y lo ejecuta en paralelo, a partir de donde se hace la llamada. El ejemplo inicia imprimiendo el process id del programa ejecutandose (ej3.c), despúes hace una llamada fork() y se asigna el resultado a p. El resultado varía dependiendo el proceso, si es -1 hay un error, 0 se asigna al proceso hijo, y cualquier otro al proceso padre. Cuando ej3 se ejecute, se creará un subproceso con pid 0, por lo que se imprimirá la línea "Estamos en el proceso hijo ... ", y se ejecutará hello. Después se cortá la ejecución de ese proceso. Debido a que el proceso padre se corre de manera independiente, no le afectará el que exec termine la ejecución del proceso, por lo tanto también se imprimirá la linea "Estamos en el proceso padre" (no importa el orden por ser paralelo y por limitaciones de printf).
+
+3. Si. En caso de que exista un error se devolverá -1, por lo que será diferente. También, write() intenta escribir nbytes en fd, sin embargo, si la capacidad de fd es excedida y solo se logran escribir un número menor de bytes, se devolverá ese número. El valor devuelto nunca puede ser mayor que nbytes.

@@ -1,0 +1,8 @@
+--PARTE 2--
+split -d -l 10 ejercicio1.txt parte
+nl parte00 > parte10
+paste parte10 parte0* > lineas
+cut -f 2-7 --complement lineas > small
+sort -rn small > invertido
+tr a-z A-Z < invertido > mayus
+sed s/"EFFECTIVE"/"NOT"/ mayus > not
