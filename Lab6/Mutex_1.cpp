@@ -7,7 +7,6 @@
 #include <sstream>
 #include <openssl/sha.h>
 
-#define MAX 1000000 /* límite de palabras a producir */
 #define N 100 /* tamaño del búfer */
 #define WORD_SIZE 4 /* tamaño de cada palabra a generar */
 
@@ -18,6 +17,7 @@ void *consumidor(void *ptr);
 void generateCombs(string prefix, int min, int max);
 vector<char> fillAlphabet();
 string sha256(const string str);
+int contador = 0;
 
 pthread_mutex_t el_mutex;
 pthread_cond_t condc,condp;
@@ -52,12 +52,18 @@ int main(int argc, char **argv) {
 
 void *productor(void *ptr) /* produce datos */ {
     int i;
-    for (i=0; i<=MAX; i++) {
+    while (true) {
+        i = (i+1)%N;
         pthread_mutex_lock(&el_mutex); /* obtiene acceso exclusivo al búfer */
-        while (bufer[i%N]!="") pthread_cond_wait(&condp, &el_mutex);
+        while (bufer[i]!="") pthread_cond_wait(&condp, &el_mutex);
+        while (contador >= N) pthread_cond_wait(&condp, &el_mutex);
         
-        bufer[i%N] = combo; /* coloca elemento en el búfer */
-        //cout<<"coloca: "<< bufer[i%N] << endl;
+        bufer[i] = combo; /* coloca elemento en el búfer */
+        contador++;
+        //cout<<"coloca: "<< bufer[i] << endl;
+        
+        pthread_cond_signal(&condc); /* despierta al consumidor */
+        pthread_mutex_unlock(&el_mutex); /* libera el acceso al búfer */
         
         int place = WORD_SIZE-1;
         while (place >= 0) {
@@ -72,19 +78,18 @@ void *productor(void *ptr) /* produce datos */ {
         }
         if (place < 0)
             exit(0);
-        
-        pthread_cond_signal(&condc); /* despierta al consumidor */
-        pthread_mutex_unlock(&el_mutex); /* libera el acceso al búfer */
     }
     pthread_exit(0);
 }
 
 void *consumidor(void *ptr) /* consume datos */ {
     int i;
-    for (i=0; i<=MAX; i++) {
+    while(true) {
+        i = (i+1)%N;
         pthread_mutex_lock(&el_mutex); /* obtiene acceso exclusivo al búfer */
-        while (bufer[i%N]=="") pthread_cond_wait(&condc, &el_mutex);
-        string curr_word = bufer[i%N];
+        while (bufer[i]=="") pthread_cond_wait(&condc, &el_mutex);
+        while (contador < 0) pthread_cond_wait(&condc, &el_mutex);
+        string curr_word = bufer[i];
         string target_hash = *((string *) ptr);
         string curr_hash = sha256(curr_word);
         cout << curr_hash << endl;
@@ -93,8 +98,9 @@ void *consumidor(void *ptr) /* consume datos */ {
             exit(0);
         }
         
-        //cout<< "saca "<<bufer[i%N]<<endl;
-        bufer[i%N] = ""; /* saca elemento del búfer */
+        //cout<< "saca "<<bufer[i]<<endl;
+        bufer[i] = ""; /* saca elemento del búfer */
+        contador--;
         pthread_cond_signal(&condp); /* despierta al productor */
         pthread_mutex_unlock(&el_mutex); /* libera el acceso al búfer */
     }
