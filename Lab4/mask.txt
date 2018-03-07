@@ -1,0 +1,20 @@
+Permisos de archivos por default:
+
+- Archivos: 666
+- Folders: 777
+
+Máscara por default: 0002
+
+Para un archivo:
+110 110 110
+
+000 000 010 --> NOT
+111 111 101
+
+110 110 110
+111 111 101 --> AND
+
+110 110 100
+6   6   4
+U   G   P
+

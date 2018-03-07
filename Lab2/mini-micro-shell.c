@@ -39,18 +39,20 @@ int main() {
                 printCmds();
                 break;
             case 0:
+                return 1;
+            case 1:
                 runCmd("ls", p, 0, input);
                 break;
-            case 1:
+            case 2:
                 runCmd("date", p, 0, input);
                 break;
-            case 2:
+            case 3:
                 runCmd("mv", p, 2, input);
                 break;
-            case 3:
+            case 4:
                 runCmd("rm", p, 1, input);
                 break;
-            case 4:
+            case 5:
                 runCmd("touch", p, 1, input);
             default:
                 break;
@@ -60,18 +62,19 @@ int main() {
 }
 
 int getCmdNumber(char *str) {
-    if(!strcmp(str, "listar")) {
+    if(!strcmp(str, "salir")) {
         return 0;
-    } else if(!strcmp(str, "fecha")) {
+    } else if(!strcmp(str, "listar")) {
         return 1;
-    } else if(!strcmp(str, "renombrar")) {
+    } else if(!strcmp(str, "fecha")) {
         return 2;
-    } else if(!strcmp(str, "borrar")) {
+    } else if(!strcmp(str, "renombrar")) {
         return 3;
-    } else if(!strcmp(str, "crear")) {
+    } else if(!strcmp(str, "borrar")) {
         return 4;
-    }
-    else {
+    } else if(!strcmp(str, "crear")) {
+        return 5;
+    } else {
         return -1;
     }
     return -1;

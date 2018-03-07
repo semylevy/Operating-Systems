@@ -1,0 +1,42 @@
+Respuestas Lab3
+Salomon Levy
+A01023530
+
+1- 
+
+a) Para que el comando no se guarde en la historia, me aseguraría que la variabl
+e $HISTCONTROL sea igual a "ignorespace" o "ignoreboth". Ejecutaría:
+
+HISTCONTROL=ignoreboth
+ wget --user admin --password secret http://www.gettyimages.es/gi-resources/imag
+es/Embed/new/embed2.jpg
+
+Es importante el espacio antes del comando, para que no se guarde en el registro
+.
+
+b) Utilizando variables, guardaría el usuario y contraseña en variables locales.
+ Después las borraría para eliminar el rastro. Utilizo espacio antes de cada com
+ando para mayor seguridad.
+
+ user=admin
+ pass=secreto
+ wget --user $user --password $pass http://www.gettyimages.es/gi-resources/image
+s/Embed/new/embed2.jpg
+ unset user
+ unset pass
+
+2-
+
+Para cambiar el default shell en Linux existe un programa llamado chsh. Podemos 
+utilizarlo de manera interactiva o guardarlo manualmente.
+
+Verificamos el shell por default actualmente:
+
+echo $SHELL
+
+Cambiamos a sh:
+
+chsh -s /bin/sh
+Ingresamos la contraseña del usuario.
+
+Se debe reiniciar el sistema para ver los cambios.

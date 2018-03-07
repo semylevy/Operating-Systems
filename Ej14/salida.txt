@@ -1,0 +1,4 @@
+Soy el hijo, mi PID es 3758 y mi PPID 3757
+Final de ejecución de 3758, var vale: 20
+Soy el padre, mi PID es 3757 y el PID de mi hijo es 3758
+Final de ejecución de 3757, var vale: 110
