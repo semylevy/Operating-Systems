@@ -1,10 +1,3 @@
-    1  git
-    2  sudo apt install git
-    3  git
-    4  ls
-    5  git clone github.com/semylevy/Operating-Systems
-    6  git clone github.com/semylevy/Operating-Systems.git
-    7  git clone https://github.com/semylevy/Operating-Systems.git
     8  cd Operating-Systems/
     9  ls
    10  mkdir Lab9

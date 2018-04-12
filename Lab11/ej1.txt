@@ -1,0 +1,20 @@
+<a href="../index.html" target="_parent" class="menu">Inicio</a>
+<a href="../directorio.html" target="_parent" class="menu">Directorio</a>
+<a href="../paquetec.html" target="_parent" class="menu">Servicios Alumnos</a>
+<a href="../empleados.html" target="_blank" class="menu">Servicios Empleados</a>
+<a href="../emergencias.html" target="_parent" class="menu">Emergencias</a>
+<a href="../ubicacion.html" target="_parent"><img src="../images/woman.jpg" width="255" height="85" /></a>
+<a href="../seguridad/casetas.html" target="_parent" onmouseover="MM_swapImage('Image20','','images/seguridad.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="images/seguridad.jpg" name="Image20" width="240" height="50" border="0" id="Image20" /></a>
+<a href="../eventos/eventos.html" target="_parent" onmouseover="MM_swapImage('Image14','','images/beventos.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="images/beventos.jpg" name="Image14" width="240" height="50" border="0" id="Image14" /></a>
+<a href="../trans/descrip.html" target="_parent" onmouseover="MM_swapImage('Image16','','images/btrans.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="images/btrans.jpg" name="Image16" width="240" height="50" border="0" id="Image16" /></a>
+<a href="http://pfisica.cem.itesm.mx/proteccioncivil/index.html" target="_blank" onmouseover="MM_swapImage('Image18','','images/bprotec.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="images/bprotec.jpg" name="Image18" width="240" height="50" border="0" id="Image18" /></a>
+<a href="../cumplimientoambiental.html" target="_parent" onmouseover="MM_swapImage('Image19','','images/bcumpli.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="images/bcumpli.jpg" name="Image19" width="240" height="50" border="0" id="Image19" /></a>
+<a target="_parent" href="casetas.html">Casetas de Acceso</a>
+<a target="_parent" href="acceso.html">Acceso Peatonal</a>
+<a target="_parent" href="accesovisi.html">Acceso a Visitantes</a>
+<a target="_parent" href="estacionamiento.html">Acceso al Campus</a>
+<a target="_parent" href="reglamento.html">Reglamento de Uso</a>
+<a target="_parent" href="PoliticasdeAsignacion.html">Políticas de Asignación</a>
+<a target="_parent" href="mcapadif.html">Personas con Discapacidad</a>
+<a target="_parent" href="TaxiSeguro.html">Servicios</a>
+<a href="mailto:pfisica.cem@itesm.mx">mailto:pfisica.cem@itesm.mx</a>

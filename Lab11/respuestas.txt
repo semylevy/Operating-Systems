@@ -1,0 +1,16 @@
+Salomon Levy
+A01023530
+Lab 11
+
+Ejercicio 1:
+
+curl http://www.cem.itesm.mx/dpf/seguridad/casetas.html | grep -o "<a.*a>" | cat > ej1.txt
+
+Ejercicio 2:
+
+curl http://www.itesm.la/Directorio-LATAM-12-Ene-16.htm | grep -Eo "[a-z,A-Z,0-9,.,_,%,+,-]*@[a-z,A-Z,.,-]*.[a-z,A-Z]{2,4}" | cat > ej2.txt
+
+Ejercicio 3:
+
+grep -Er (daño\s)((?:\w+\s*){1,5})(\s+UNAM) emails | cat > peligros.txt
+
