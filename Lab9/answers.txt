@@ -1,0 +1,63 @@
+    8  cd Operating-Systems/
+    9  ls
+   10  mkdir Lab9
+   11  cd Lab9
+   12  useradd Camila
+   13  sudo useradd Camila
+   14  sudo useradd Elena
+   15  sudo useradd Eduardo
+   16  sudo useradd Enrique
+   17  sudo useradd Daniel
+   18  sudo useradd Daniela
+   19  sudo useradd Emilio
+   20  sudo useradd Emiliano
+   21  sudo groupadd gueras
+   22  sudo groupadd feos
+   23  sudo groupadd buenos
+   24  sudo groupadd malos
+   25  sudo usermod -g gueras Camila
+   26  sudo usermod -g gueras Elena
+   27  sudo usermod -g feos Eduardo
+   28  sudo usermod -g feos Enrique
+   29  sudo usermod -g buenos Daniel
+   30  sudo usermod -g buenos Daniela
+   31  sudo usermod -g malos Emilio
+   32  sudo usermod -g malos Emiliano
+   33  mkdir gueras
+   34  mkdir feos
+   35  mkdir buenos
+   36  mkdir malos
+   37  man chown
+   38  sudo chown :feos feos
+   39  sudo chown :gueras gueras
+   40  sudo chown :malos malos
+   41  sudo chown :buenos buenos
+   42  ls -l
+   43  chmod 470 *
+   44  ls -l
+   45  cd malos
+   46  sudo cd malos
+   47  sudo usermod -g gueras Daniela
+   48  sudo usermod -g feos Daniel
+   49  sudo groupdel buenos
+   50  ls -l
+   51  more /cat/group
+   52  more /cat/groups
+   53  more /cat/groups/
+   54  more /cat/pswd
+   55  more /cat/psswd
+   56  touch script
+   57  nano script
+   58  chmod 755 script
+   59  ./script
+   60  nano script
+   61  chmod 700 script
+   62  ./script
+   63  nano script
+   64  ./script
+   65  ls -l
+   66  history
+   67  cat >> answers.txt | history
+   68  ls
+   69  cat answers.txt
+   70  history > answers.txt

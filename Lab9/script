@@ -1,0 +1,6 @@
+#!/bin/bash
+# Change student folder permissions
+
+chmod 700 feos
+chmod 700 gueras
+chmod 700 malos
